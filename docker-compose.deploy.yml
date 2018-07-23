@@ -1,0 +1,14 @@
+version: '2'
+services:
+  app:
+    image: registry.gitlab.propulsion-home.ch/sophialj/flask_todo_app:latest
+    restart: always
+    environment:
+      - FLASK_APP=app.py
+    command: "sh /app/scripts/run.sh"
+    volumes:
+      - /run:/run
+      - database:/database
+
+volumes:
+  database:
